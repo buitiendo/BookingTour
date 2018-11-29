@@ -1,0 +1,5 @@
+size:
+  length_max_255: 255
+  length_max_name: 100
+  min_password: 6
+  text_2000: 2000
