@@ -1,0 +1,33 @@
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header"><%= t "menu" %></li>
+      <li class="active treeview menu-open">
+        <a href="#">
+          <i class="fa fa-dashboard"></i> <span><%= t "user" %></span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><%= link_to t("dasboard"), "#", class: "fa fa-circle-o" %></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-pie-chart"></i>
+          <span><%= t "tour" %></span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><%= link_to t("dasboard"), "#", class: "fa fa-circle-o" %></li>
+          <li><%= link_to t("dasboard"), "#", class: "fa fa-circle-o" %></li>
+          <li><%= link_to t("dasboard"), "#", class: "fa fa-circle-o" %></li>
+          <li><%= link_to t("dasboard"), "#", class: "fa fa-circle-o" %></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</aside>

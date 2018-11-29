@@ -3,3 +3,8 @@ size:
   length_max_name: 100
   min_password: 6
   text_2000: 2000
+number:
+  cate: 90
+  tour: 42.41
+  booking: 760
+  view: 2000
