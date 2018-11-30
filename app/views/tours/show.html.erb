@@ -1,0 +1,16 @@
+<div class="col-md-10">
+  <h1 class="mt-4"><%= @tour.name %></h1>
+  <hr>
+  <p> <%= t "tours.posted_on" %> <%= l @tour.created_at, format: t("tours.datetime_format") %></p>
+  <hr>
+  <%= image_tag Settings.tours.image_demo_lg, class: "img-fluid rounded" %>
+  <hr>
+  <blockquote class="blockquote">
+    <p class="mb-0"> <%= t "tours.start" %> <%= l @tour.date_from, format: t("tours.date_format") %>
+      <%= t "tours.end" %> <%= l @tour.date_to, format: t("tours.date_format") %></p>
+    <p class="mb-0"> <%= t "tours.from" %> <%= @tour.location_from %> <%= t "tours.to" %> <%= @tour.location_to %></p>
+    <footer class="blockquote-footer">  <%= @tour.description %>
+    </footer>
+  </blockquote>
+  <hr>
+</div>
