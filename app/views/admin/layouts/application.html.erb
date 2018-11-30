@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield :title %></title>
+    <%= render "admin/layouts/rails_default"%>
+  </head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+    <%= render "admin/layouts/header" %>
+    <%= render "admin/layouts/sidebar" %>
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
+    <%= render "admin/layouts/footer" %>
+    <div class="control-sidebar-bg"></div>
+  </div>
+</html>
