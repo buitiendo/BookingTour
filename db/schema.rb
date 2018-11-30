@@ -90,9 +90,10 @@ ActiveRecord::Schema.define(version: 2018_11_29_073325) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.boolean "is_admin"
     t.string "phone"
+    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
