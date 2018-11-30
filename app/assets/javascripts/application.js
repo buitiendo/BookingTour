@@ -5,4 +5,5 @@
 //= require admin/bootstrap.min
 //= require admin/adminlte
 //= require admin/ckeditor
+//= require bootstrap-datepicker
 //= require_tree .

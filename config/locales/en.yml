@@ -58,7 +58,6 @@ en:
   new_admin_booking: "Admin/New-booking"
   edit_admin_booking: "Admin/Edit-booking"
   create_success: "Create success!"
-  is_admin: " Is admin"
   show_user: "Show user"
   delete_success: "Delele success!"
   not_delete: "Can not delete!"
@@ -74,3 +73,12 @@ en:
     not_found: "Tour not found"
     date_format: "%d-%m-%Y"
     datetime_format: "%H:%m %d-%m-%Y"
+    price_greater_than: "Price greater than"
+    price_less_than: "price less than"
+    name: "Search by tour name or location"
+    from_date: "From date: "
+    to_date: "To date: "
+    search: "Search"
+  app:
+    category:
+      not_found: "Category not found"

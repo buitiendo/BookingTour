@@ -22,8 +22,9 @@ gem "bootstrap-kaminari-views"
 gem "jquery-rails"
 gem "bootstrap-sass"
 gem "momentjs-rails", ">= 2.9.0"
-gem "bootstrap3-datetimepicker-rails", "~> 4.17.47"
+gem "bootstrap-datepicker-rails"
 gem "awesome_nested_set"
+gem "ransack"
 gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do

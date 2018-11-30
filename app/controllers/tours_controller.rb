@@ -2,12 +2,12 @@ class ToursController < ApplicationController
   before_action :find_tour, only: %i(show)
 
   def index
-    @categories = Category.all
-    @tours = Tour.select_custom.page(params[:page]).per Settings.tours.per_page
+    @q = Tour.ransack params[:q]
+    @categories = Category.select_custom
+    @tours = @q.result.select_custom.page(params[:page]).per Settings.tours.per_page
   end
 
-  def show;
-  end
+  def show; end
 
   private
 
