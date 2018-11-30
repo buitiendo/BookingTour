@@ -28,19 +28,33 @@ ActiveRecord::Schema.define(version: 2018_11_29_073325) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
+    t.integer "lft", null: false
+    t.integer "rgt", null: false
+    t.integer "depth", default: 0, null: false
+    t.integer "children_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["lft"], name: "index_categories_on_lft"
+    t.index ["parent_id"], name: "index_categories_on_parent_id"
+    t.index ["rgt"], name: "index_categories_on_rgt"
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.integer "parent_id"
+    t.integer "lft", null: false
+    t.integer "rgt", null: false
+    t.integer "depth", default: 0, null: false
+    t.integer "children_count", default: 0, null: false
     t.integer "user_id"
     t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["lft"], name: "index_comments_on_lft"
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
     t.index ["review_id", "created_at"], name: "index_comments_on_review_id_and_created_at"
     t.index ["review_id"], name: "index_comments_on_review_id"
+    t.index ["rgt"], name: "index_comments_on_rgt"
     t.index ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end

@@ -19,19 +19,19 @@ User.create!(name: "admin",
     phone: phone,
     address: address)
 end
-5.times do
-  city = FFaker::AddressUS.city
-  Category.create!(
-    name: city,
-    parent_id: 0)
+3.times do
+  Category.create!(name: FFaker::AddressUS.city)
 end
 categories_parent = Category.all
 categories_parent.each do |category|
-  4.times do
+  2.times do
     city = FFaker::AddressUS.city
-    Category.create!(
+    cate1 = Category.create!(
       name: city,
       parent_id: category.id)
+    Category.create!(
+      name: FFaker::AddressUS.city,
+      parent_id: cate1.id)
   end
 end
 categories = Category.all
@@ -80,7 +80,6 @@ user = User.first
 reviews.each do |review|
   Comment.create!(
     content: FFaker::Book.description,
-    parent_id: 0,
     user_id: user.id,
     review_id: review.id)
 end
