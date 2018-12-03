@@ -1,0 +1,21 @@
+<%= form_for [:admin, @category] do |f| %>
+  <div class="box-body">
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-newspaper-o style-icon"></i>
+        </span>
+        <%= f.text_field :name, placeholder: t("name"), class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <i class="fa fa-users style-icon"></i>
+        </span>
+        <%= f.text_field :parent_id, placeholder: t("parent_id"), class: "form-control" %>
+      </div>
+    </div>
+    <%= f.submit t("submit"), class: "btn btn-primary" %>
+  </div>
+<% end %>
