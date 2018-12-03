@@ -1,33 +1,57 @@
 class Admin::UsersController < Admin::BaseController
   before_action :load_user, except: %i(new index create)
-
-  def index; end
+  def index
+    @q = User.ransack params[:q]
+    @users = @q.result(distinct: true)
+      .show_user.show_user_desc
+      .page(params[:page]).per Settings.page.page_number_user
+  end
 
   def new
     @user = User.new
   end
 
-  def create; end
+  def show
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def create
+    @user = User.new user_params
+    if @user.save
+      flash[:success] = t "create_success"
+      redirect_to admin_users_path
+    else
+      render :new
+    end
+  end
+
+  def edit; end
 
   def update
     if @user.update user_params
       flash[:success] = t "update_success"
-      redirect_to root_path
+      redirect_to admin_users_path
     else
       render :edit
     end
   end
 
-  def show; end
-
-  def edit; end
-
-  def destroy; end
+  def destroy
+    begin
+      @user.destroy
+      flash[:success] = t "delete_success"
+    rescue
+      flash[:danger] = t "not_delete"
+    end
+    redirect_to admin_users_path
+  end
 
   private
 
   def user_params
-    params.require(:user).permit :name, :address, :email, :phone,
+    params.require(:user).permit :name,:email, :phone, :address, :is_admin,
       :password, :password_confirmation
   end
 

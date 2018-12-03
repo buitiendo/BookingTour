@@ -1,0 +1,37 @@
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"></button>
+        <h4 class="modal-title"><%= t "show_user" %></h4>
+      </div>
+      <div class="col-sm-10 col-sm-offset-1">
+        <table class="table table-hover table-bordered border-user">
+          <thead class="bordered-blueberry">
+            <tr>
+              <th><%= t "name" %></th>
+              <th><%= t "email" %></th>
+              <th><%= t "phone" %></th></th>
+              <th><%= t "address" %></th>
+              <th><%= t "is_admin" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="name"></td>
+              <td id="email"></td>
+              <td id="phone"></td>
+              <td id="address"></td>
+              <td id="isAdmin"></td>
+              </td>
+            </tr>
+          </tbody>
+          </thead>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
