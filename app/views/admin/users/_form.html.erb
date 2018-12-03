@@ -1,5 +1,6 @@
 <%= form_for [:admin, @user] do |f| %>
   <div class="box-body">
+    <%= render "admin/shared/error_messages", object: @user %>
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon">
