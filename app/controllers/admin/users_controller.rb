@@ -9,10 +9,6 @@ class Admin::UsersController < Admin::BaseController
 
   def create; end
 
-  def edit
-    @user = User.new
-  end
-
   def update
     if @user.update user_params
       flash[:success] = t "update_success"
@@ -31,7 +27,7 @@ class Admin::UsersController < Admin::BaseController
   private
 
   def user_params
-    params.require(:user).permit :name, :address, :email, :phone, 
+    params.require(:user).permit :name, :address, :email, :phone,
       :password, :password_confirmation
   end
 

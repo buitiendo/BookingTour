@@ -1,0 +1,34 @@
+<div class="col-xs-12">
+  <div class="box">
+    <div class="box-header">
+      <%= link_to t("add"), new_admin_category_path, class: "btn btn-primary fa fa-plus" %>
+      <h3 class="box-title"><%= t "list_cate" %></h3>
+      <div class="box-tools">
+      </div>
+    </div>
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover table-bordered">
+        <thead class="bordered-blueberry">
+          <tr>
+            <th><%= t "index" %></th>
+            <th><%= t "name" %></th>
+            <th><%= t "parent_name" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="action">
+              <%= link_to t("show"), "#", class: "btn btn-primary fa fa-info-circle"%>
+              <%= link_to t("edit"), "#", class: "btn btn-success fa fa-edit"%>
+              <%= link_to t("Del"), "#", class: "btn btn-danger fa fa-trash"%>
+            </td>
+          </tr>
+        </tbody>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
