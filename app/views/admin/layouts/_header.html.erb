@@ -1,8 +1,8 @@
 <header class="main-header">
-  <a href="index2.html" class="logo">
+  <p class="logo">
     <span class="logo-mini"><b><%= t "logo_mini" %></b></span>
     <span class="logo-lg"><b><%= t "logo_lg" %></b></span>
-  </a>
+  </p>
   <nav class="navbar navbar-static-top">
     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
       <span class="sr-only"><%= "menu" %></span>
@@ -10,7 +10,7 @@
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#"><i class="fa fa-circle text-success"></i> <%= t "logout" %> </a>
+          <%= link_to t("logout"), "#" %>
         </li>
       </ul>
     </div>
