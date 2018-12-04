@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :bookings
     resources :reviews
   end
+  resources :tours, only: %i(index show)
+  resources :categories, only: %i(index show)
 end

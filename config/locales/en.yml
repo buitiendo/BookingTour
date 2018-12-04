@@ -57,3 +57,13 @@ en:
   admin_booking: "Admin/bookings"
   new_admin_booking: "Admin/New-booking"
   edit_admin_booking: "Admin/Edit-booking"
+  tours:
+    posted_on: "Posted on: "
+    start: "Start_at"
+    end: "end at"
+    from: "from"
+    to: "to"
+    view_more: "view more "
+    not_found: "Tour not found"
+    date_format: "%d-%m-%Y"
+    datetime_format: "%H:%m %d-%m-%Y"
