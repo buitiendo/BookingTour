@@ -16,6 +16,9 @@ class User < ApplicationRecord
   validates :phone, presence: true
   validates :address, presence: true, length: {maximum: Settings.size.length_max_255}
 
+  scope :show_user, -> {select :id, :name, :email, :phone, :address, :is_admin}
+  scope :show_user_desc, -> {order created_at: :desc}
+
   def default_admin
     self.is_admin ||= false
   end

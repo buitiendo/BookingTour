@@ -1,10 +1,17 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'color';
 
 .style-icon {
-    width: 13px;
+  width: 13px;
 }
 
 .action {
-    width: 240px;
+  width: 240px;
+}
+#input_search {
+  width: 354px;
+}
+#icon_list{
+  color: $blue_icon;
 }
