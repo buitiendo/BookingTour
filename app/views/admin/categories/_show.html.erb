@@ -1,4 +1,4 @@
-<div id="myModal" class="modal fade" role="dialog">
+<div id="modalCategory" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,23 +7,17 @@
         <h4 class="modal-title"><%= t "show_user" %></h4>
       </div>
       <div class="modal-body">
-        <table class="table table-hover table-bordered border-user">
+         <table class="table table-hover table-bordered border-user">
           <thead class="bordered-blueberry">
             <tr>
               <th><%= t "name" %></th>
-              <th><%= t "email" %></th>
-              <th><%= t "phone" %></th></th>
-              <th><%= t "address" %></th>
-              <th><%= t "is_admin" %></th>
+              <th class="text-center"><%= t "tour_total" %></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td id="name"></td>
-              <td id="email"></td>
-              <td id="phone"></td>
-              <td id="address"></td>
-              <td id="isAdmin"></td>
+              <td id="name_cate"></td>
+              <td id="tour_total" class="text-center"></td>
               </td>
             </tr>
           </tbody>

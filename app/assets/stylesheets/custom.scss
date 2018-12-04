@@ -9,15 +9,35 @@
 .action {
   width: 240px;
 }
+
 #input_search {
   width: 354px;
 }
+
 #icon_list{
   color: $blue_icon;
 }
+
 .form-control{
   margin: 2px 0 2px;
 }
 .btn{
   margin: 2px 0 2px;
+}
+
+.index_number {
+  width: 50px
+}
+
+.icon_add {
+  margin-right: 14px;
+}
+
+.table_color {
+  background:  $black_title;
+  color: $white;
+}
+
+.pages_custom {
+  margin-right: 24px;
 }
