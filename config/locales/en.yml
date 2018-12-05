@@ -44,7 +44,7 @@ en:
   not_access: "You don't have permission to access!"
   list_review: "List Review"
   error: "Error"
-  admin_user : "Admin/Users"
+  admin_user: "Admin/Users"
   edit_title_user: "Admin/Edit-user"
   new_title_user: "Admin/New-user"
   admin_review: "Admin/Reviews"
@@ -81,5 +81,25 @@ en:
     to_date: "To date: "
     search: "Search"
   app:
+    home: "Home"
     category:
       not_found: "Category not found"
+    users:
+      not_found: "User not found"
+    sign_up:
+      sign_up: "Sign up "
+      username: "User name:"
+      email: "Email: "
+      password: "Password: "
+      confirmation: "Confirmation Password: "
+      phone: "Phone: "
+      address: "Address: "
+      creataccount: "Creat account"
+      welcome: "Welcome to Booking Tour app"
+    login:
+      login: "Login"
+      logout: "logout"
+      email: "Email"
+      password: "Password"
+      newuser: "New User"
+      invalid: "Email or password invalid"

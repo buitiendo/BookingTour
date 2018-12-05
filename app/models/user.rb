@@ -19,6 +19,12 @@ class User < ApplicationRecord
   scope :show_user, -> {select :id, :name, :email, :phone, :address, :is_admin}
   scope :show_user_desc, -> {order created_at: :desc}
 
+  def self.digest string
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+             BCrypt::Engine.cost
+    BCrypt::Password.create string, cost: cost
+  end
+
   def default_admin
     self.is_admin ||= false
   end
