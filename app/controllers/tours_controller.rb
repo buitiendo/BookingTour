@@ -3,7 +3,7 @@ class ToursController < ApplicationController
 
   def index
     @q = Tour.ransack params[:q]
-    @categories = Category.select_custom
+    @categories = Category.select_custom.order_lft_asc
     @tours = @q.result.select_custom.page(params[:page]).per Settings.tours.per_page
   end
 

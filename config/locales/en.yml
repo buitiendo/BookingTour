@@ -104,7 +104,11 @@ en:
     category:
       not_found: "Category not found"
     users:
+      please_log_in: "please log in"
       not_found: "User not found"
+      profile_updated: "Profile updated"
+      edit: "Account setting"
+      save: "Save change"
     sign_up:
       sign_up: "Sign up "
       username: "User name:"

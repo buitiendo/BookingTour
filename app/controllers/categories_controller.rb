@@ -1,10 +1,15 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: %i(show)
+
   def index; end
 
   def show
-    @categories = Category.select_custom
-    @tours = @category.tours.page(params[:page]).per Settings.tours.per_page
+    @categories = Category.select_custom.order_lft_asc
+    tours = []
+    @category.self_and_descendants.each do |category|
+      tours += category.tours
+    end
+    @tours = Kaminari.paginate_array(tours).page(params[:page]).per Settings.tours.per_page
   end
 
   private

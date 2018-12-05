@@ -11,12 +11,12 @@
           <div class="col-md-6">
             <small class="lead text-red"> <%= t "tours.from" %></small>
             <br>
-            <small class="text-bold"> <%= tour.location_from %> </small>
+            <small class="text-bold"> <%= tour.location_from.truncate Settings.tours.show_location %> </small>
           </div>
           <div class="col-md-6">
             <small class="lead text-red"> <%= t "tours.to" %></small>
             <br>
-            <small class="text-bold"> <%= tour.location_to %> </small>
+            <small class="text-bold"> <%= tour.location_to.truncate Settings.tours.show_location%> </small>
           </div>
           <div class="col-md-6">
             <p class="lead text-red text">
