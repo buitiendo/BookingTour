@@ -2,6 +2,10 @@
 @import 'bootstrap';
 @import 'color';
 
+body {
+  padding-top: 60px;
+}
+
 .style-icon {
   width: 13px;
 }
@@ -14,14 +18,15 @@
   width: 354px;
 }
 
-#icon_list{
+#icon_list {
   color: $blue_icon;
 }
 
-.form-control{
+.form-control {
   margin: 2px 0 2px;
 }
-.btn{
+
+.btn {
   margin: 2px 0 2px;
 }
 
@@ -34,10 +39,26 @@
 }
 
 .table_color {
-  background:  $black_title;
+  background: $black_title;
   color: $white;
 }
 
 .pages_custom {
   margin-right: 24px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: $lightskyblue;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+
+  &:hover {
+    color: $blue_icon;
+    text-decoration: none;
+  }
 }
