@@ -3,7 +3,6 @@ class CreateTours < ActiveRecord::Migration[5.2]
     create_table :tours do |t|
       t.integer :status
       t.string :name
-      t.string :name
       t.date :date_from
       t.date :date_to
       t.string :location_from

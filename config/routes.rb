@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get "dasboard/index", to: "dasboard#index"
     resources :users
     resources :categories
+    resources :tours
     resources :bookings
     resources :reviews
   end

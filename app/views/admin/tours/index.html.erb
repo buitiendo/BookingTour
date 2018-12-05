@@ -1,0 +1,64 @@
+<% provide :title, t("admin_user") %>
+<div class="col-sm-12 col-md-12 col-xs-12">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title"><i class="fa fa-list-alt icon_user" id="icon_list"></i>
+        <%= t "list_tour" %>
+      </h3>
+      <div class="box-tools">
+        <%= search_form_for [:admin, @q] do |f| %>
+        <div class="input-group input-group-sm text-right" id="input_search">
+          <%= f.text_field :name_or_location_from_or_location_to_cont, placeholder: t("look_for_tour"), class: "form-control" %>
+          <div class="input-group-btn">
+            <%= f.submit class: "btn btn-default fa fa-search" %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-responsive table-hover table-bordered border-user">
+        <thead class="bordered-blueberry table_color">
+          <tr>
+            <th class="index_number"><%= t "index" %></th>
+            <th><%= t "name" %></th>
+            <th class="width_from"><%= t "tours.date_from" %></th>
+            <th><%= t "tours.location_from" %></th>
+            <th><%= t "tours.price" %></th>
+            <th><%= t "tours.max_people" %></th>
+            <th><%= t "tours.description" %></th>
+            <th><%= t "tours.status" %></th>
+            <th class="text-center"><%= t "action" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @tours.each_with_index do |tour, index| %>
+          <tr>
+            <td><%= pages_number index, params[:pages] %></td>
+            <td><%= tour.name.truncate(Settings.tours.truncate) %></td>
+            <td><%= tour.date_from %> | <%= tour.date_to %></td>
+            <td><%= tour.location_from %> - <%= tour.location_to %></td>
+            <td class="text-right"><%= tour.price.round(Settings.tours.round) %></td>
+            <td class="text-center"><%= tour.max_people %>|<%= tour.min_people %></td>
+            <td><%= tour.description.truncate(Settings.tours.truncate) %></td>
+            <td class="text-center"><%= tour.open? ? t("tours.open") : t("tours.close") %></td>
+            <td class="action text-center">
+              <%= link_to t("show"), admin_tour_path(tour.id), class: "btn btn-info fa fa-info-circle", remote: true %>
+              <% if tour.open? %>
+                <%= link_to t("tours.btn_close"), admin_tour_path(tour.id),class: "btn btn-danger fa fa-close", method: :patch %>
+              <% else %>
+                 <%= link_to t("tours.btn_open"), admin_tour_path(tour.id),class: "btn btn-success fa fa-check-circle", method: :patch %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+        </thead>
+      </table>
+      <div class="text-right pages_custom">
+        <%= paginate @tours%>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "show" %>

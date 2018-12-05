@@ -1,0 +1,56 @@
+<div id="tourModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span></button>
+        <h4 class="modal-title"><%= t "show_user" %></h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover table-bordered border-user">
+           <tbody>
+            <tr>
+              <th><%= t "tours.name_tour" %></th>
+              <td id="name_tour"></td>
+            </tr>
+            <tr>
+              <th><%= t "tours.date_from_tour" %></th>
+              <td id="date_from"></td>
+            </tr>
+            <tr>
+              <th><%= t "tours.date_to_tour" %></th>
+              <td id="date_to"></td>
+            </tr>
+            <tr>
+              <th><%= t "tours.location_from_tour" %></th>
+              <td id="location_from"></td>
+            </tr>
+            <tr>
+              <th><%= t "tours.location_to_tour" %></th>
+              <td id="location_to"></td>
+            </tr>
+            <tr>
+              <th><%= t "tours.max_people_tour" %></th>
+              <td id="max_people"></td>
+            </tr>
+            <tr>
+              <th><%= t "tours.min_people_tour" %></th>
+              <td id="min_people"></td>
+            </tr>
+            <tr>
+              <th><%= t "tours.description" %></th>
+              <td id="description"></td>
+            </tr>
+            <tr>
+              <th><%= t "tours.status" %></th>
+              <td id="status"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

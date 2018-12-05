@@ -2,8 +2,8 @@ class Tour < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, dependent: :destroy
   belongs_to :category
+  enum status: %i(close open)
 
-  validates :status, presence: true, numericality: true
   validates :name, presence: true, length: {maximum: Settings.size.length_max_255}
   validates :date_from, presence: true
   validates :date_to, presence: true
@@ -16,4 +16,5 @@ class Tour < ApplicationRecord
 
   scope :select_custom, -> {select :id, :status, :name, :date_from, :date_to, :location_from,
     :location_to, :price, :max_people, :min_people, :description, :created_at, :update_at}
+  scope :show_tour_desc, -> {order created_at: :desc}
 end

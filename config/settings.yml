@@ -16,5 +16,8 @@ tours:
   image_demo_lg: "http://placehold.it/1200x300"
   image_demo: "http://placehold.it/400x250/000/fff"
   price_row: 2
+  status: 1
+  truncate: 20
+  round: 2
 page:
   page_number_user: 5
