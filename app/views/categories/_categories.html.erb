@@ -1,3 +1,11 @@
 <div class="sidebar-menu" data-widget="tree">
-  <%= render partial: "categories/subcategory" %>
+  <ul>
+    <% if @categories.length > 0 %>
+      <% @categories.each_with_level @categories do |category, level| %>
+        <li>
+          <%= link_to "#{"-" * level}#{category.name}", category %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
