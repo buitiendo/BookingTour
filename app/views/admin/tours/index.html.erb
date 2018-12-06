@@ -1,4 +1,4 @@
-<% provide :title, t("admin_user") %>
+<% provide :title, t("tours.admin_tour") %>
 <div class="col-sm-12 col-md-12 col-xs-12">
   <div class="box">
     <div class="box-header">
@@ -21,14 +21,14 @@
         <thead class="bordered-blueberry table_color">
           <tr>
             <th class="index_number"><%= t "index" %></th>
-            <th><%= t "name" %></th>
-            <th class="width_from"><%= t "tours.date_from" %></th>
-            <th><%= t "tours.location_from" %></th>
-            <th><%= t "tours.price" %></th>
-            <th><%= t "tours.max_people" %></th>
-            <th><%= t "tours.description" %></th>
-            <th><%= t "tours.status" %></th>
-            <th class="text-center"><%= t "action" %></th>
+            <th class="text-center"><%= t "name" %></th>
+            <th class="width_from text-center"><%= t "tours.date_from" %></th>
+            <th class="width_from text-center"><%= t "tours.date_to" %></th>
+            <th class="width_local text-center"><%= t "tours.location_from" %></th>
+            <th class="width_local text-center"><%= t "tours.location_to" %></th>
+            <th class="text-center"><%= t "tours.price" %></th>
+            <th class="text-center"><%= t "tours.status" %></th>
+            <th class="text-right"><%= link_to t("add"), new_admin_tour_path, class: "btn btn-primary fa fa-car icon_add" %></th>
           </tr>
         </thead>
         <tbody>
@@ -36,19 +36,23 @@
           <tr>
             <td><%= pages_number index, params[:pages] %></td>
             <td><%= tour.name.truncate(Settings.tours.truncate) %></td>
-            <td><%= tour.date_from %> | <%= tour.date_to %></td>
-            <td><%= tour.location_from %> - <%= tour.location_to %></td>
+            <td><%= tour.date_from %></td>
+            <td><%= tour.date_to %></td>
+            <td><%= tour.location_from %></td>
+            <td><%= tour.location_to %></td>
             <td class="text-right"><%= tour.price.round(Settings.tours.round) %></td>
-            <td class="text-center"><%= tour.max_people %>|<%= tour.min_people %></td>
-            <td><%= tour.description.truncate(Settings.tours.truncate) %></td>
-            <td class="text-center"><%= tour.open? ? t("tours.open") : t("tours.close") %></td>
-            <td class="action text-center">
-              <%= link_to t("show"), admin_tour_path(tour.id), class: "btn btn-info fa fa-info-circle", remote: true %>
-              <% if tour.open? %>
-                <%= link_to t("tours.btn_close"), admin_tour_path(tour.id),class: "btn btn-danger fa fa-close", method: :patch %>
+            <td class="text-center" id="tour_status-<%= tour.id %>">
+              <% if tour.close? %>
+                <%= link_to t("tours.btn_close"), admin_status_path(tour),class: "btn btn-danger fa fa-close", method: :patch, remote: true %>
               <% else %>
-                 <%= link_to t("tours.btn_open"), admin_tour_path(tour.id),class: "btn btn-success fa fa-check-circle", method: :patch %>
+                 <%= link_to t("tours.btn_open"), admin_status_path(tour),class: "btn btn-success fa fa-check-circle", method: :patch, remote: true %>
               <% end %>
+            </td>
+            <td class="action text-center">
+              <%= link_to t("show"), admin_tour_path(tour), class: "btn btn-info fa fa-info-circle", remote: true %>
+              <%= link_to t("edit"), edit_admin_tour_path(tour), class: "btn btn-success fa fa-edit"%>
+              <%= link_to t("del"), admin_tour_path(tour), class: "btn btn-danger fa fa-trash", method: :delete,
+                  data: {confirm: t("are_you_sure")} %>
             </td>
           </tr>
           <% end %>

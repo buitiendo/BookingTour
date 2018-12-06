@@ -6,5 +6,5 @@ $("#location_to").text("<%= @tour.location_to %>");
 $("#max_people").text("<%= @tour.max_people %>");
 $("#min_people").text("<%= @tour.min_people %>");
 $("#description").text("<%= @tour.description %>");
-$("#status").text("<%= @tour.status == 1 ? "Open" : "Close" %>");
+$("#status").text("<%= @tour.open? ? "Open" : "Close" %>");
 $("#tourModal").modal();

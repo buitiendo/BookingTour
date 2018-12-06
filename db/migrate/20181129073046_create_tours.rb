@@ -1,7 +1,7 @@
 class CreateTours < ActiveRecord::Migration[5.2]
   def change
     create_table :tours do |t|
-      t.integer :status
+      t.integer :status, null: false, default: 1
       t.string :name
       t.date :date_from
       t.date :date_to

@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2018_11_29_073325) do
   end
 
   create_table "tours", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 1, null: false
     t.string "name"
     t.date "date_from"
     t.date "date_to"
