@@ -3,7 +3,7 @@ class Admin::BaseController < ApplicationController
   before_action :admin_user
 
   def admin_user
-    return if current_user && current_user.admin?
+    return if current_user && current_user.is_admin?
     flash[:danger] = t "not_access"
     redirect_to root_path
   end

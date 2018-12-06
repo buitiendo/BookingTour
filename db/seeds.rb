@@ -5,12 +5,12 @@ User.create!(name: "admin",
   phone: "+84965116895",
   address: "Hà Nội",
   is_admin: true)
-20.times do |n|
+2.times do |n|
   name = FFaker::Name.name
   email = "user#{n + 1}@gmail.com"
   password = "12345678"
   phone = FFaker::PhoneNumberAU.mobile_phone_number
-  address = FFaker::AddressAU.full_address
+  address = FFaker::AddressAU.full_addressedd
   User.create!(
     name: name,
     email: email,
@@ -36,7 +36,7 @@ categories_parent.each do |category|
 end
 categories = Category.all
 categories.each do |category|
-  8.times do
+  2.times do
     name = FFaker::Conference.name
     date_from = Time.now
     date_to = Time.now + 5.days
@@ -84,14 +84,14 @@ reviews.each do |review|
     review_id: review.id)
 end
 reviews = Review.all
-likes = reviews[1..100]
+likes = reviews[1..5]
 user = User.first
 likes.each do |review|
   Like.create!(
     review_id: review.id,
     user_id: user.id)
 end
-comments = Comment.take(20)
+comments = Comment.take(4)
 user = User.second
 comments.each do |comment|
   2.times do
