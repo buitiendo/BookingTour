@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get "sessions/new"
   resources :users
   resources :tours, only: %i(index show) do
-    resources :bookings, shallow: true
+    resources :bookings, except: %i(index), shallow: true
   end
+  resources :bookings, only: %i(index)
   resources :categories, only: %i(index show)
   namespace :admin do
     get "dasboard/index", to: "dasboard#index"

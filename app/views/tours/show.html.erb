@@ -1,6 +1,16 @@
 <div class="col-md-8">
   <h2 class="mt-4"><%= @tour.name %></h2>
-  <%= image_tag Settings.tours.image_demo_lg, class: "img-fluid rounded" %>
+  <% if @tour.images.length > 0 %>
+    <% @tour.images.each do |img| %>
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <%= image_tag img.image_link.url, class: "d-block w-100" %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <%= image_tag Settings.tours.image_demo_lg, class: "img-fluid rounded" %>
+  <% end %>
   <hr>
   <blockquote class="blockquote">
     <p class="mb-0"> <%= t "tours.start" %> <%= l @tour.date_from, format: t("tours.date_format") %>
@@ -13,9 +23,9 @@
 </div>
 <div class="col-md-4">
   <div class="well">
-  <h1><%= t "app.booking.booking" %></h1>
-  <%= render "bookings/form" %>
-  <br>
+    <h1><%= t "app.booking.booking" %></h1>
+    <%= render "bookings/form" %>
+    <br>
   </div>
   <h2> <%= t "list_reviews" %></h2>
 </div>
