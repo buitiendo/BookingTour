@@ -1,8 +1,12 @@
 <div class="sidebar-menu" data-widget="tree">
-  <ul>
+  <ul class="list-group">
     <% if @categories.length > 0 %>
       <% @categories.each_with_level @categories do |category, level| %>
-        <li>
+        <% if category.root? %>
+        <li class="list-group-item list-group-item-info">
+          <% else  %>
+        <li class="list-group-item list-group-item-warning">
+          <% end %>
           <%= link_to "#{"-" * level}#{category.name}", category %>
         </li>
       <% end %>

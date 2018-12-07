@@ -10,10 +10,10 @@ number:
   view: 2000
 tours:
   per_page: 9
-  show_name: 30
-  show_description: 40
-  show_location: 10
-  image_demo_lg: "http://placehold.it/1200x300"
+  show_name: 28
+  show_description: 35
+  show_location: 15
+  image_demo_lg: "http://placehold.it/1015x300"
   image_demo: "http://placehold.it/400x250/000/fff"
   price_row: 2
   status: 1

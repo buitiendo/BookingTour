@@ -1,9 +1,7 @@
-<div class="col-md-10">
-  <h1 class="mt-4"><%= @tour.name %></h1>
-  <hr>
-  <p> <%= t "tours.posted_on" %> <%= l @tour.created_at, format: t("tours.datetime_format") %></p>
-  <hr>
+<div class="col-md-11">
+  <h2 class="mt-4"><%= @tour.name %></h2>
   <%= image_tag Settings.tours.image_demo_lg, class: "img-fluid rounded" %>
+  <%= link_to "book_tour", "#", class: "btn btn-primary btn-block" %>
   <hr>
   <blockquote class="blockquote">
     <p class="mb-0"> <%= t "tours.start" %> <%= l @tour.date_from, format: t("tours.date_format") %>

@@ -11,6 +11,11 @@
           <li>
             <%= link_to t("app.login.logout"), logout_path, method: :delete %>
           </li>
+          <% if is_admin? %>
+            <li>
+              <%= link_to t("logo_lg"),  admin_dasboard_index_path%>
+            </li>
+          <% end %>
         <% else %>
           <li><%= link_to t("app.login.login"), login_path %></li>
         <% end %>
