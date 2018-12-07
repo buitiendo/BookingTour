@@ -35,12 +35,12 @@
           <% @tours.each_with_index do |tour, index| %>
           <tr>
             <td><%= pages_number index, params[:pages] %></td>
-            <td><%= tour.name.truncate(Settings.tours.truncate) %></td>
+            <td><%= tour.name.truncate Settings.tours.truncate %></td>
             <td><%= tour.date_from %></td>
             <td><%= tour.date_to %></td>
             <td><%= tour.location_from %></td>
             <td><%= tour.location_to %></td>
-            <td class="text-right"><%= tour.price.round(Settings.tours.round) %></td>
+            <td class="text-right"><%= tour.price.round Settings.tours.round %></td>
             <td class="text-center" id="tour_status-<%= tour.id %>">
               <% if tour.close? %>
                 <%= link_to t("tours.btn_close"), admin_status_path(tour),class: "btn btn-danger fa fa-close", method: :patch, remote: true %>

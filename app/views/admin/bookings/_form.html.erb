@@ -1,19 +1,12 @@
 <%= form_for [:admin, @booking] do |f| %>
   <div class="box-body">
+    <%= render "admin/shared/error_messages", object: @booking %>
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon">
-          <i class="fa fa-check style-icon"></i>
+          <i class="fa fa-adjust style-icon"></i>
         </span>
-        <%= f.text_field :status, placeholder: t("status"), class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="input-group">
-        <span class="input-group-addon">
-          <i class="fa fa-users style-icon"></i>
-        </span>
-        <%= f.text_field :number_people, placeholder: t("number_people"), class: "form-control" %>
+        <%= f.select :status, Booking.statuses.keys, {}, class: "form-control" %>
       </div>
     </div>
     <%= f.submit t("submit"), class: "btn btn-primary" %>
