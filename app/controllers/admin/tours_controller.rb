@@ -1,5 +1,6 @@
 class Admin::ToursController < Admin::BaseController
   before_action :load_tour, except: %i(new index create)
+  before_action :load_cate, only: %i(new edit)
   def index
     @q = Tour.ransack params["q"]
     @tours = @q.result(distinct: true)
@@ -7,28 +8,72 @@ class Admin::ToursController < Admin::BaseController
       .page(params[:page]).per Settings.page.page_number_user
   end
 
+  def new
+    @tour = Tour.new
+  end
+
+  def create
+    @tour = Tour.new tour_params
+    if @tour.save
+      flash[:success] = t "create_success"
+      redirect_to admin_tours_path
+    else
+      render :new
+    end
+  end
+
   def show
     respond_to do |format|
       format.js
     end
   end
+  def edit; end
 
   def update
+    if @tour.update tour_params
+      flash[:success] = t "update_success"
+      redirect_to admin_tours_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    begin
+      @tour.destroy
+      flash[:success] = t "delete_success"
+    rescue
+      flash[:danger] = t "not_delete"
+    end
+    redirect_to admin_tours_path
+  end
+
+  def status
     if @tour.close?
       @tour.update! status: "open"
-      redirect_to admin_tours_path
     elsif @tour.open?
       @tour.update! status: "close"
-      redirect_to admin_tours_path
+    end
+    respond_to do |format|
+      format.js
     end
   end
 
   private
+
+  def tour_params
+    params.require(:tour).permit :status, :name, :date_from, :date_to, :location_from, :location_to, :price,
+      :max_people,:min_people, :description, :category_id
+  end
 
   def load_tour
     @tour = Tour.find_by id: params[:id]
     return if @tour.present?
     flash[:danger] = t "tours.not_tour"
     redirect_to root_path
+  end
+
+  def load_cate
+    @categories = Category.show_cate
   end
 end

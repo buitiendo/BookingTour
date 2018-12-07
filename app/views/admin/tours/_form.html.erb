@@ -1,0 +1,101 @@
+<%= form_for [:admin, @tour] do |f| %>
+  <div class="box-body">
+    <%= render "admin/shared/error_messages", object: @tour %>
+    <div class="col-sm-6 col-md-6 col-sx-12">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-adjust style-icon"></i>
+          </span>
+          <%= f.select :status, Tour.statuses.keys, {}, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-newspaper-o style-icon"></i>
+          </span>
+          <%= f.text_field :name, placeholder: t("tours.name_tour"), class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-calendar style-icon"></i>
+          </span>
+          <%= f.date_field :date_from, placeholder: t("tours.date_from"), class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-calendar style-icon"></i>
+          </span>
+          <%= f.date_field :date_to, placeholder: t("tours.date_to"), class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-map-marker style-icon"></i>
+          </span>
+          <%= f.text_field :location_from, placeholder: t("tours.location_from"), class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-sx-12">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-map-marker style-icon"></i>
+          </span>
+          <%= f.text_field :location_to, placeholder: t("tours.location_to"), class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-shopping-basket style-icon"></i>
+          </span>
+          <%= f.text_field :price, placeholder: t("tours.price"), class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-user-circle-o style-icon"></i>
+          </span>
+          <%= f.text_field :max_people, placeholder: t("tours.max_people"), class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-user-circle style-icon"></i>
+          </span>
+          <%= f.text_field :min_people, placeholder: t("tours.min_people"), class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-commenting-o style-icon"></i>
+          </span>
+          <%= f.text_field :description, placeholder: t("tours.description"), class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-sx-12">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-list-alt style-icon"></i>
+          </span>
+          <%= f.select :category_id, @categories.collect {|c| [c.name, c.id]},
+            {}, class: "form-control" %>
+        </div>
+      </div>
+       <%= f.submit t("submit"), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

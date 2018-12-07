@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :categories, only: %i(index show)
   namespace :admin do
     get "dasboard/index", to: "dasboard#index"
+    patch "tours/status/:id", to: "tours#status", as: "status"
     resources :users
     resources :categories
     resources :tours
