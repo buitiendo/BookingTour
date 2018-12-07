@@ -7,7 +7,9 @@ class ToursController < ApplicationController
     @tours = @q.result.select_custom.page(params[:page]).per Settings.tours.per_page
   end
 
-  def show; end
+  def show
+    @booking = Booking.new
+  end
 
   private
 

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2018_11_29_073325) do
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 0
     t.integer "number_people"
     t.integer "user_id"
     t.integer "tour_id"
