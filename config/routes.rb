@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "sessions/new"
   resources :users
-  resources :tours, only: %i(index show)
+  resources :tours, only: %i(index show) do
+    resources :bookings, shallow: true
+  end
   resources :categories, only: %i(index show)
   namespace :admin do
     get "dasboard/index", to: "dasboard#index"

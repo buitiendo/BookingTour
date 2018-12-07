@@ -64,6 +64,7 @@ en:
   are_you_sure: "Are you sure?"
   look_for_user: "Look for name, email..."
   tour_total: "Tour total"
+  form_contains: "Form contains"
   can_not_delete_category: "Can't delete category because exist children data!"
   tours:
     posted_on: "Posted on: "
@@ -139,3 +140,8 @@ en:
       password: "Password"
       newuser: "New User"
       invalid: "Email or password invalid"
+    booking:
+      booking_success: "booking success"
+      booking_fail: "Can not send request"
+      booking: "Booking"
+      data_confirm: "click ok to request booking"

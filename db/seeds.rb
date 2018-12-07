@@ -10,7 +10,7 @@ User.create!(name: "admin",
   email = "user#{n + 1}@gmail.com"
   password = "12345678"
   phone = FFaker::PhoneNumberAU.mobile_phone_number
-  address = FFaker::AddressAU.full_addressedd
+  address = FFaker::AddressAU.full_address
   User.create!(
     name: name,
     email: email,
@@ -67,7 +67,7 @@ tours.each do |tour|
   max_people = tour.max_people
   number_people = rand(min_people..max_people)
   tour.bookings.create!(
-    status: rand(1..3),
+    status: rand(0..2),
     number_people: number_people,
     user_id: user.id)
   tour.reviews.create!(
