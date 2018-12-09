@@ -42,6 +42,15 @@
           <%= f.text_field :location_from, placeholder: t("tours.location_from"), class: "form-control" %>
         </div>
       </div>
+       <div class="form-group">
+        <%= f.fields_for :images do |p| %>
+        <div class="field">
+          <%= p.label :image_link %><br>
+          <%= p.file_field :image_link, multiple: true, name: "images[image_link][]", class: "upload-image",
+            accept: "image/jpeg,image/gif,image/png" %>
+        </div>
+      <% end %>
+      </div>
     </div>
     <div class="col-sm-6 col-md-6 col-sx-12">
       <div class="form-group">
@@ -84,8 +93,6 @@
           <%= f.text_field :description, placeholder: t("tours.description"), class: "form-control" %>
         </div>
       </div>
-    </div>
-    <div class="col-sm-12 col-md-12 col-sx-12">
       <div class="form-group">
         <div class="input-group">
           <span class="input-group-addon">
@@ -95,6 +102,8 @@
             {}, class: "form-control" %>
         </div>
       </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-sx-12">
        <%= f.submit t("submit"), class: "btn btn-primary" %>
     </div>
   </div>

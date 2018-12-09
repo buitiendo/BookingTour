@@ -21,3 +21,4 @@ tours:
   round: 2
 page:
   page_number_user: 5
+  page_number_img: 3

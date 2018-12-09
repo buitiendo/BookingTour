@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_073325) do
+ActiveRecord::Schema.define(version: 2018_12_09_081644) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "status", default: 0
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2018_11_29_073325) do
     t.index ["rgt"], name: "index_comments_on_rgt"
     t.index ["user_id", "created_at"], name: "index_comments_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "image_link"
+    t.integer "tour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tour_id", "created_at"], name: "index_images_on_tour_id_and_created_at"
+    t.index ["tour_id"], name: "index_images_on_tour_id"
   end
 
   create_table "likes", force: :cascade do |t|

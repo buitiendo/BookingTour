@@ -11,11 +11,15 @@ class Admin::ToursController < Admin::BaseController
 
   def new
     @tour = Tour.new
+    @image = @tour.images.build
   end
 
   def create
     @tour = Tour.new tour_params
     if @tour.save
+      params[:images]["image_link"].each do |image|
+        @image = Image.create! tour_id: @tour.id, image_link: image
+      end
       flash[:success] = t "create_success"
       redirect_to admin_tours_path
     else
@@ -24,14 +28,16 @@ class Admin::ToursController < Admin::BaseController
   end
 
   def show
-    respond_to do |format|
-      format.js
-    end
+    @images = @tour.images.select_image
+      .page(params[:page]).per Settings.page.page_number_img
   end
   def edit; end
 
   def update
     if @tour.update tour_params
+      params[:images]["image_link"].each do |image|
+        @image = Image.create! tour_id: @tour.id, image_link: image
+      end
       flash[:success] = t "update_success"
       redirect_to admin_tours_path
     else

@@ -25,6 +25,7 @@ gem "momentjs-rails", ">= 2.9.0"
 gem "bootstrap-datepicker-rails"
 gem "awesome_nested_set"
 gem "ransack"
+gem "carrierwave"
 gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do

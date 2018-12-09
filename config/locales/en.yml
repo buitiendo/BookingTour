@@ -66,6 +66,9 @@ en:
   tour_total: "Tour total"
   form_contains: "Form contains"
   can_not_delete_category: "Can't delete category because exist children data!"
+  show_tour: "Show tour"
+  image: "Images"
+  add: " Add"
   tours:
     posted_on: "Posted on: "
     start: "Start_at"
@@ -103,6 +106,7 @@ en:
     admin_tour: "Admin/Tours"
     edit_title_tour: "Admin/Edit-tour"
     new_title_tour: "Admin/New-tour"
+    show_tour: "Admin/Show-tour"
     add_tour: "Add tour"
     date_from: "Date from"
     date_to: "Date to"
@@ -149,7 +153,7 @@ en:
       welcome: "Welcome to Booking Tour app"
     login:
       login: "Login"
-      logout: "logout"
+      logout: "Log out"
       email: "Email"
       password: "Password"
       newuser: "New User"
