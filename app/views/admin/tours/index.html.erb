@@ -49,7 +49,7 @@
               <% end %>
             </td>
             <td class="action text-center">
-              <%= link_to t("show"), admin_tour_path(tour), class: "btn btn-info fa fa-info-circle", remote: true %>
+              <%= link_to t("show"), admin_tour_path(tour), class: "btn btn-info fa fa-info-circle" %>
               <%= link_to t("edit"), edit_admin_tour_path(tour), class: "btn btn-success fa fa-edit"%>
               <%= link_to t("del"), admin_tour_path(tour), class: "btn btn-danger fa fa-trash", method: :delete,
                   data: {confirm: t("are_you_sure")} %>
@@ -65,4 +65,3 @@
     </div>
   </div>
 </div>
-<%= render "show" %>
