@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::BaseController
     @q = User.ransack params[:q]
     @users = @q.result(distinct: true)
       .show_user.show_user_desc
-      .page(params[:page]).per Settings.page.page_number_user
+      .page(params[:page]).per Settings.page.page_number_admin
   end
 
   def new

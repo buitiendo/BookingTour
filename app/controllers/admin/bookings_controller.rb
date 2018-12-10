@@ -5,7 +5,7 @@ class Admin::BookingsController < Admin::BaseController
     @q = Booking.ransack params[:q]
     @bookings = @q.result(distinct: true)
       .select_booking.includes(:tour)
-      .page(params[:page]).per Settings.page.page_number_user
+      .page(params[:page]).per Settings.page.page_number_admin
   end
 
   def show

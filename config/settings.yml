@@ -20,5 +20,7 @@ tours:
   truncate: 20
   round: 2
 page:
-  page_number_user: 5
+  page_number_admin: 5
   page_number_img: 3
+reviews:
+  truncate_content: 200

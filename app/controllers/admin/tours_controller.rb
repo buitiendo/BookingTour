@@ -6,7 +6,7 @@ class Admin::ToursController < Admin::BaseController
     @q = Tour.ransack params[:q]
     @tours = @q.result(distinct: true)
       .select_custom.show_tour_desc
-      .page(params[:page]).per Settings.page.page_number_user
+      .page(params[:page]).per Settings.page.page_number_admin
   end
 
   def new

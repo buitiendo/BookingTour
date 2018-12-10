@@ -4,7 +4,7 @@ class Admin::CategoriesController < Admin::BaseController
     @q = Category.ransack params[:q]
     @categories = @q.result(distinct: true)
       .show_cate.select_cate_desc.includes(:tours)
-      .page(params[:page]).per Settings.page.page_number_user
+      .page(params[:page]).per Settings.page.page_number_admin
   end
 
   def new

@@ -27,7 +27,7 @@
         <tbody>
           <% @categories.each_with_index do |cate, index| %>
           <tr>
-            <td><%= pages_number index, params[:pages] %></td>
+            <td><%= pages_number index, params[:page] %></td>
             <td><%= cate.name %></td>
             <td class="text-center"> <%= cate.tours.size %></td>
             <td class="action">

@@ -30,11 +30,12 @@ gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
   gem "rspec-rails"
-  gem "shoulda-matchers"
+  gem "rspec"
+  gem "rspec-collection_matchers"
   gem "factory_bot_rails", "~> 4.0"
+  gem "rails-controller-testing"
 end
 
 group :development do
@@ -45,7 +46,11 @@ group :development do
 end
 
 group :test do
-  gem "chromedriver-helper"
+  gem "capybara", ">= 2.15"
+  gem "database_cleaner"
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
+  gem "simplecov-rcov", require: false
   gem "database_cleaner"
 end
 
