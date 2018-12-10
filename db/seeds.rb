@@ -70,10 +70,12 @@ tours.each do |tour|
     status: rand(0..2),
     number_people: number_people,
     user_id: user.id)
-  tour.reviews.create!(
-    title: FFaker::Conference.name,
-    content: FFaker::Book.description,
-    user_id: user.id)
+  3.times do
+    tour.reviews.create!(
+      title: FFaker::Conference.name,
+      content: FFaker::Book.description,
+      user_id: user.id)
+  end
 end
 reviews = Review.all
 user = User.first

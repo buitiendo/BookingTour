@@ -22,14 +22,13 @@
         <%= f.label t("tours.to_date") %>
         <%= f.search_field :date_to_lt, class: "form-control", data: {provide: "datepicker"} %>
       </div>
-      <br>
       <div class="col-sm-12">
         <%= f.submit t("tours.search"), class: "btn btn-block btn-primary" %>
       </div>
     <% end %>
   </div>
   <div id="products" class="row list-group">
-    <% if @tours.length > 0 %>
+    <% if @tours.present? %>
       <%= render partial: "tours/tour", collection: @tours %>
     <% end %>
   </div>

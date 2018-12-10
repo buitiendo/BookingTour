@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :users
   resources :tours, only: %i(index show) do
     resources :bookings, except: %i(index), shallow: true
+    resources :reviews, except: %i(index), shallow: true
   end
+  resources :reviews,  only: %i(index)
   resources :bookings, only: %i(index)
   resources :categories, only: %i(index show)
   namespace :admin do
