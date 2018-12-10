@@ -17,5 +17,6 @@ class Tour < ApplicationRecord
 
   scope :select_custom, -> {select :id, :status, :name, :date_from, :date_to, :location_from,
     :location_to, :price, :max_people, :min_people, :description, :created_at, :update_at}
+  scope :is_open, -> {where status: :open}
   scope :show_tour_desc, -> {order created_at: :desc}
 end

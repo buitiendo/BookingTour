@@ -31,6 +31,7 @@ class Admin::ToursController < Admin::BaseController
     @images = @tour.images.select_image
       .page(params[:page]).per Settings.page.page_number_img
   end
+
   def edit; end
 
   def update
