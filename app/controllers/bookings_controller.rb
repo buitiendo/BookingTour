@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
       flash[:success] = t "app.booking.booking_success"
       redirect_to @tour
     else
-      flash[:danger] = t "app.booking.booking_fail"
+      @reviews = @tour.reviews
       render "tours/show"
     end
   end
