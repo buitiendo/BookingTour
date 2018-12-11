@@ -135,6 +135,13 @@ en:
     booking_total_price: "Total price"
     edit_title_booking: "Admin/Edit-booking"
     edit_booking: "Edit booking"
+  reviews:
+    not_review: "Review not exist!"
+    show_review: "Show review"
+    admin_title_review: "Admin/Show-review"
+    title: "Title"
+    content: "Content"
+    look_for_review: "Look for user, title..."
   app:
     home: "Home"
     category:

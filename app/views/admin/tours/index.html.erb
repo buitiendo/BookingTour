@@ -34,7 +34,7 @@
         <tbody>
           <% @tours.each_with_index do |tour, index| %>
           <tr>
-            <td><%= pages_number index, params[:pages] %></td>
+            <td><%= pages_number index, params[:page] %></td>
             <td><%= tour.name.truncate Settings.tours.truncate %></td>
             <td><%= tour.date_from %></td>
             <td><%= tour.date_to %></td>
