@@ -1,42 +1,11 @@
 <% provide :title, t("dasboard") %>
   <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text"><%= t "category" %></span>
-          <span class="info-box-number"><%= Settings.number.cate %></span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text"><%= t "tour" %></span>
-          <span class="info-box-number"><%= Settings.number.tour %></span>
-        </div>
-      </div>
-    </div>
-    <div class="clearfix visible-sm-block"></div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text"><%= t "booking" %></span>
-          <span class="info-box-number"><%= Settings.number.booking %></span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-6 col-xs-12">
-      <div class="info-box">
-        <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text"><%= t "review" %></span>
-          <span class="info-box-number"><%= Settings.number.review %></span>
-        </div>
-      </div>
-    </div>
+    <%= column_chart @bookings.group(:status).size, ytitle: "Total" %>
+    <h2 class="text-center"><%= t "booking_chart" %></h2>
+  </div>
+  <div class="row">
+    <%= line_chart @tours.group(:date_from).size, ytitle: "Total" %>
+    <h2 class="text-center"><%= t "tour_chart" %></h2>
   </div>
   <div class="row">
     <div class="col-md-12">

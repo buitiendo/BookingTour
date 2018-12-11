@@ -6,4 +6,7 @@
 //= require admin/adminlte
 //= require admin/ckeditor
 //= require bootstrap-datepicker
+//= require Chart.bundle
+//= require chartkick
+//= require highcharts
 //= require_tree .

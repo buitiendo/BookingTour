@@ -44,7 +44,9 @@
               <td class="text-right"><%= (booking.number_people * booking.tour_price).round Settings.tours.round %></td>
               <td>
                 <%= link_to t("show"), admin_booking_path(booking), class: "btn btn-primary fa fa-info-circle btn_booking", remote: true %>
-                <%= link_to t("edit"), edit_admin_booking_path(booking), class: "btn btn-success fa fa-edit"%>
+                <% if booking.waiting? %>
+                  <%= link_to t("edit"), edit_admin_booking_path(booking), class: "btn btn-success fa fa-edit"%>
+                <% end %>
               </td>
             </tr>
           <% end %>
