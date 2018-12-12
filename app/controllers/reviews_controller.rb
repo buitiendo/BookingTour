@@ -10,7 +10,11 @@ class ReviewsController < ApplicationController
     redirect_to :root if @reviews.nil?
   end
 
-  def show; end
+  def show
+    @review = Review.find_by id: params[:id]
+    @comments = @review.comments.order_desc.roots.includes(:user)
+    @comment = Comment.new
+  end
 
   def new
     @review = Review.new

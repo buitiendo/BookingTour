@@ -29,7 +29,7 @@
   <div class="well">
     <h2> <%= t "list_review" %></h2>
     <% @reviews.each do |review| %>
-    <h4><%= link_to review.title, review %></h4>
+      <h4><%= link_to review.title, review %></h4>
     <% end %>
     <%= link_to t("app.review.create"), new_tour_review_path(@tour.id), class: "btn btn-primary" %>
   </div>

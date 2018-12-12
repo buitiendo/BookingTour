@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :bookings, except: %i(index), shallow: true
     resources :reviews, except: %i(index), shallow: true
   end
-  resources :reviews,  only: %i(index)
+  resources :reviews, only: %i(index show) do
+    resources :comments, only: %i(create destroy edit update)
+  end
   resources :bookings, only: %i(index)
   resources :categories, only: %i(index show)
   namespace :admin do
