@@ -38,8 +38,12 @@ categories = Category.all
 categories.each do |category|
   2.times do
     name = FFaker::Conference.name
-    date_from = Time.now
-    date_to = Time.now + 5.days
+    date_range = DateTime.now.beginning_of_day +
+      rand(60).days +
+      rand(24).hours +
+      (rand(2) * 30).minutes
+    date_from = date_range
+    date_to = date_from + 5.days
     location_from = FFaker::AddressUS.city
     location_to = FFaker::AddressUS.city
     price = rand(11.2...760.9)

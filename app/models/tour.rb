@@ -16,7 +16,7 @@ class Tour < ApplicationRecord
   validates :description, presence: true, length: {maximum: Settings.size.text_2000}
 
   scope :select_custom, -> {select :id, :status, :name, :date_from, :date_to, :location_from,
-    :location_to, :price, :max_people, :min_people, :description, :created_at, :update_at}
+    :location_to, :price, :max_people, :min_people, :description}
   scope :is_open, -> {where status: :open}
   scope :show_tour_desc, -> {order created_at: :desc}
 end

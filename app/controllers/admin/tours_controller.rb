@@ -1,6 +1,6 @@
 class Admin::ToursController < Admin::BaseController
   before_action :load_tour, except: %i(new index create)
-  before_action :load_cate, only: %i(new edit)
+  before_action :load_cate, except: %i(index show destroy)
 
   def index
     @q = Tour.ransack params[:q]
@@ -16,15 +16,17 @@ class Admin::ToursController < Admin::BaseController
 
   def create
     @tour = Tour.new tour_params
-    if @tour.save
+    ActiveRecord::Base.transaction do
+      @tour.save
       params[:images]["image_link"].each do |image|
         @image = Image.create! tour_id: @tour.id, image_link: image
       end
       flash[:success] = t "create_success"
       redirect_to admin_tours_path
-    else
-      render :new
     end
+    rescue Exception
+      flash[:danger] = t "not_image"
+      render :new
   end
 
   def show
@@ -35,15 +37,17 @@ class Admin::ToursController < Admin::BaseController
   def edit; end
 
   def update
-    if @tour.update tour_params
+    ActiveRecord::Base.transaction do
+      @tour.update tour_params
       params[:images]["image_link"].each do |image|
         @image = Image.create! tour_id: @tour.id, image_link: image
       end
       flash[:success] = t "update_success"
       redirect_to admin_tours_path
-    else
-      render :edit
     end
+    rescue Exception
+      flash[:danger] = t "not_image"
+      render :edit
   end
 
   def destroy

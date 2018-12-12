@@ -4,7 +4,8 @@ en:
   copy_right: "Copyright 2014-2016"
   logout: "Logout"
   logo_mini: "BT"
-  logo_lg: "ADMIN"
+  logo_lg: "admin"
+  logo_lg_admin: "Booking Tour"
   menu: "Navigation Menu"
   dasboard: " Dasboard"
   document: "documment"
@@ -73,6 +74,9 @@ en:
   show_tour: "Show tour"
   image: "Images"
   add: " Add"
+  not_image: "You have not selected images"
+  booking_chart: "Booking"
+  tour_chart: "Tour"
   tours:
     posted_on: "Posted on: "
     start: "Start_at"
@@ -135,6 +139,7 @@ en:
     booking_total_price: "Total price"
     edit_title_booking: "Admin/Edit-booking"
     edit_booking: "Edit booking"
+    total: "Total"
   reviews:
     not_review: "Review not exist!"
     show_review: "Show review"
