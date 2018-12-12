@@ -1,7 +1,6 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th><%= t "stt" %></th>
       <th><%= t "tour_name" %></th>
       <th><%= t "number_people" %></th>
       <th><%= t "created_at" %></th>
@@ -9,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <% if @bookings.length > 0 %>
+    <% if @bookings.present? %>
       <%= render partial: "bookings/booking", collection: @bookings %>
     <% end %>
   </tbody>

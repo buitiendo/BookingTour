@@ -1,6 +1,6 @@
 <div class="col-md-8">
   <h2 class="mt-4"><%= @tour.name %></h2>
-  <% if @tour.images.length > 0 %>
+  <% if @tour.images.present? %>
     <% @tour.images.each do |img| %>
       <div class="carousel-inner">
         <div class="carousel-item">
@@ -25,7 +25,12 @@
   <div class="well">
     <h1><%= t "app.booking.booking" %></h1>
     <%= render "bookings/form" %>
-    <br>
   </div>
-  <h2> <%= t "list_reviews" %></h2>
+  <div class="well">
+    <h2> <%= t "list_review" %></h2>
+    <% @reviews.each do |review| %>
+    <h4><%= link_to review.title, review %></h4>
+    <% end %>
+    <%= link_to t("app.review.create"), new_tour_review_path(@tour.id), class: "btn btn-primary" %>
+  </div>
 </div>

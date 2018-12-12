@@ -1,0 +1,9 @@
+<h1>
+  <%= @review.title %>
+</h1>
+<p>
+  <%= @review.content %>
+</p>
+<% if current_user? @review.user %>
+<%= link_to t("app.review.edit"), edit_review_path(@review.id), class: "btn btn-primary" %>
+<% end %>

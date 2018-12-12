@@ -1,7 +1,7 @@
 <div class="col">
   <div class="item col-md-4">
     <div class="thumbnail">
-      <% if tour.images.length > 0 %>
+      <% if tour.images.present? %>
         <%= image_tag tour.images.first.image_link.url, class: "img-thumbnail" %>
       <% else %>
         <%= image_tag Settings.tours.image_demo, class: "group list-group-image" %>
