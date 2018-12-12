@@ -27,6 +27,8 @@ gem "awesome_nested_set"
 gem "ransack"
 gem "carrierwave"
 gem "chartkick"
+gem "delayed_job_active_record"
+gem "figaro", "~> 1.1", ">= 1.1.1"
 gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do

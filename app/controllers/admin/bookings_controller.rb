@@ -18,6 +18,9 @@ class Admin::BookingsController < Admin::BaseController
 
   def update
     if @booking.update booking_params
+      if @booking.accepted?
+        SendEmailJob.set(wait: Settings.number.time_send_mail.seconds).perform_later @booking
+      end
       flash[:success] = t "update_success"
       redirect_to admin_bookings_path
     else

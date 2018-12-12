@@ -45,3 +45,4 @@ config/master.key
 config/database.yml
 /public/*
 .editorconfig
+/config/application.yml
