@@ -1,8 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: %i(show)
 
-  def index; end
-
   def show
     @categories = Category.select_custom.order_lft_asc
     tours = []

@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'support/database_cleaner'
 
 RSpec.describe Admin::ReviewsController, type: :controller do
-  let!(:user) {FactoryBot.create(:user)}
+  let!(:user) {FactoryBot.create :user, is_admin: true}
   let!(:review) {FactoryBot.create :review}
 
   describe "GET index" do
