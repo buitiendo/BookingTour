@@ -8,6 +8,7 @@ number:
   tour: 42.41
   booking: 760
   view: 2000
+  time_send_mail: 10
 tours:
   per_page: 9
   show_name: 28

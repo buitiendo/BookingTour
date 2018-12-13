@@ -79,6 +79,10 @@ en:
   not_image: "You have not selected images"
   booking_chart: "Booking"
   tour_chart: "Tour"
+  thank_you_for_booktour: "Thank you for book tour!"
+  information: "Information"
+  hi: "Hi"
+  name_tour: "Tour name"
   tours:
     posted_on: "Posted on: "
     start: "Start_at"
