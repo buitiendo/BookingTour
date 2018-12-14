@@ -30,7 +30,7 @@ gem "chartkick"
 gem "delayed_job_active_record"
 gem "figaro", "~> 1.1", ">= 1.1.1"
 gem "bootsnap", ">= 1.1.0", require: false
-
+gem 'whenever', require: false
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "selenium-webdriver"
