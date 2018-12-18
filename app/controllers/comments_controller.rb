@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   def create
     @comment = @review.comments.build comment_params
     @comment.user_id = current_user.id
-    if @review.save
+    if @comment.save
       flash[:success] = t "app.comment.success"
     else
       flash[:danger] = t "app.comment.fails"

@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'support/database_cleaner'
 
 RSpec.describe Review, type: :model do
   context "Associtations test" do
