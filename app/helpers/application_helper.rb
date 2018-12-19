@@ -7,4 +7,12 @@ module ApplicationHelper
   def comment_user? comment
     current_user.id == comment.user_id
   end
+
+  def current_user? user
+    user == current_user
+  end
+
+  def is_admin?
+    current_user.is_admin == true
+  end
 end
