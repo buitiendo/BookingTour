@@ -1,17 +1,15 @@
 class ReviewsController < ApplicationController
-  before_action :logged_in_user, except: %i(show)
+  before_action :authenticate_user!, except: %i(show)
   before_action :find_tour, only: %i(new create)
   before_action :correct_user, only: %i(edit update)
   before_action :find_review, only: %i(show destroy)
 
   def index
-    @reviews = current_user.reviews.includes(:tour)
-                 .page(params[:page]).per Settings.tours.per_page
+    @reviews = current_user.reviews.includes(:tour).page(params[:page]).per Settings.tours.per_page
     redirect_to :root if @reviews.nil?
   end
 
   def show
-    @review = Review.find_by id: params[:id]
     @comments = @review.comments.order_desc.roots.includes(:user)
     @comment = Comment.new
   end

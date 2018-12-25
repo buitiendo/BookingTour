@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "tours#index"
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
@@ -6,7 +7,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "sessions/new"
-  resources :users
   resources :tours, only: %i(index show) do
     resources :bookings, except: %i(index), shallow: true
     resources :reviews, except: %i(index), shallow: true

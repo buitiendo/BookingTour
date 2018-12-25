@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :logged_in_user, :find_review
+  before_action :authenticate_user!
+  before_action :find_review
   before_action :find_comment_for_destroy, only: %i(destroy)
   before_action :allow_destroy, only: %i(destroy)
   before_action :find_comment_for_edit, only: %i(edit update)

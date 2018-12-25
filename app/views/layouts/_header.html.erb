@@ -6,18 +6,11 @@
         <li>
           <%= link_to t("app.home"), root_path %>
         </li>
-        <% if logged_in? %>
-          <li><%= link_to "#{@current_user.name}", current_user %></li>
-          <li>
-            <%= link_to t("app.login.logout"), logout_path, method: :delete %>
-          </li>
-          <% if is_admin? %>
-            <li>
-              <%= link_to t("logo_lg"),  admin_dasboard_index_path%>
-            </li>
-          <% end %>
+        <% if user_signed_in? %>
+          <li><%= link_to t("profile"), edit_user_registration_path %></li>
+          <li><%= link_to t("app.login.logout"), destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to t("app.login.login"), login_path %></li>
+          <li><%= link_to t("app.login.login"), new_user_session_path %></li>
         <% end %>
       </ul>
     </nav>

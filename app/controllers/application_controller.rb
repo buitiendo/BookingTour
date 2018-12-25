@@ -1,17 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  include SessionsHelper
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t "app.users.please_log_in"
-    redirect_to login_path
-  end
+  private
 
-  def admin_user
-    return if current_user && current_user.is_admin?
-    flash[:danger] = t "not_access"
-    redirect_to root_path
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit :sign_up, keys: [:name, :phone, :address]
   end
 end
