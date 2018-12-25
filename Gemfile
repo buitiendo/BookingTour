@@ -29,6 +29,7 @@ gem "carrierwave"
 gem "chartkick"
 gem "delayed_job_active_record"
 gem "figaro", "~> 1.1", ">= 1.1.1"
+gem "whenever", require: false
 gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
