@@ -4,11 +4,11 @@
     <div class="box-header">
       <h3 class="box-title"><i class="fa fa-list-alt icon_user" id="icon_list"></i><%= t "list_admin" %></h3>
       <div class="box-tools">
-        <%= search_form_for [:admin, @q] do |f| %>
+        <%= form_tag admin_users_path, method: :get, class: "form-inline" do |f| %>
           <div class="input-group input-group-sm text-right" id="input_search">
-            <%= f.text_field :name_or_email_or_phone_or_address_cont, placeholder: t("look_for_user"), class: "form-control" %>
+            <%= text_field_tag  :name, nil, name: "user_list[name]", placeholder: t("look_for_user"), class: "form-control" %>
             <div class="input-group-btn">
-              <%= f.submit class: "btn btn-default fa fa-search" %>
+              <%= button_tag :submit, class: "btn btn-default fa fa-search" %>
             </div>
           </div>
         <% end %>
@@ -50,7 +50,7 @@
         </thead>
       </table>
       <div class="text-right pages_custom">
-        <%= paginate @users%>
+        <%== pagy_nav(@pagy) %>
       </div>
     </div>
   </div>

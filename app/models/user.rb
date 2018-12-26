@@ -18,4 +18,8 @@ class User < ApplicationRecord
   scope :show_user, -> {select :id, :name, :email, :phone, :address, :is_admin}
   scope :show_user_desc, -> {order created_at: :desc}
   scope :select_admin, -> {where is_admin: :true}
+  scope :search_user, ->(search){
+    search.squish! if search
+    ransack(name_cont: search).result
+  }
 end

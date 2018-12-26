@@ -11,7 +11,7 @@
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
         <li>
-          <%= link_to t("app.login.logout"), logout_path, method: :delete %>
+          <%= link_to t("app.login.logout"), destroy_user_session_path, method: :delete %>
         </li>
       </ul>
     </div>

@@ -8,6 +8,11 @@
         </li>
         <% if user_signed_in? %>
           <li><%= link_to t("profile"), edit_user_registration_path %></li>
+          <% if is_admin? %>
+            <li>
+              <%= link_to "Admin",  admin_dasboard_index_path%>
+            </li>
+          <% end %>
           <li><%= link_to t("app.login.logout"), destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to t("app.login.login"), new_user_session_path %></li>
