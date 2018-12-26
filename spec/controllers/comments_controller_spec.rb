@@ -4,12 +4,12 @@ require 'support/database_cleaner'
 RSpec.describe CommentsController, type: :controller do
   let!(:user) {create :user}
   let!(:review) {create :review}
-  let(:valid_attributes) {attributes_for(:comment, review_id: review.id, user_id: user.id)}
-  let(:invalid_attributes) {attributes_for(:comment, content: nil, review_id: review.id, user_id: user.id)}
+  let(:valid_attributes) {attributes_for(:comment, user_id: user.id)}
+  let(:invalid_attributes) {attributes_for(:comment, content: nil, user_id: user.id)}
   let(:update_attribute_valid) {attributes_for(:comment, content: "new content")}
   let(:update_attribute_invalid) {attributes_for(:comment, content: nil)}
 
-  before {session[:user_id] = user.id}
+  before {sign_in user}
 
   describe "POST #create" do
     it "creates a new comment" do
@@ -110,7 +110,7 @@ RSpec.describe CommentsController, type: :controller do
 
     context "when log in by another user" do
       let!(:user_another) {create :user}
-      before {session[:user_id] = user_another.id}
+      before {sign_in user_another}
       it "delete comment fails" do
         expect {delete :destroy, params: {review_id: review.id, id: comment.id}
         }.not_to change(Comment, :count)

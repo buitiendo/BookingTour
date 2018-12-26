@@ -13,6 +13,6 @@
       <%= f.label :status, t("parent_name") %><br>
       <%= f.select :parent_id, nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" }, {}, class: "form-control" %>
     </div>
-    <%= f.submit t("submit"), class: "btn btn-primary" %>
+    <%= f.submit t("submit"), class: "btn btn-primary button-full" %>
   </div>
 <% end %>

@@ -1,10 +1,10 @@
 class Admin::UsersController < Admin::BaseController
   before_action :load_user, except: %i(new index create)
+
   def index
-    @q = User.ransack params[:q]
-    @users = @q.result(distinct: true)
-      .show_user.show_user_desc
-      .page(params[:page]).per Settings.page.page_number_admin
+    params = search_params ? search_params[:name] : nil
+    @pagy, @users = pagy(User.show_user.show_user_desc
+      .search_user(params), items: Settings.page.page_number_admin)
   end
 
   def new
@@ -60,5 +60,10 @@ class Admin::UsersController < Admin::BaseController
     return if @user.present?
     flash[:danger] = t "not_user"
     redirect_to root_path
+  end
+
+  def search_params
+    return nil unless params[:user_list]
+    params.require(:user_list).permit :name
   end
 end
